@@ -1,0 +1,160 @@
+:root {
+    --sidebar-width: 240px;
+    --topbar-height: 72px;
+    --gamecore-dark: #242729;
+    --gamecore-orange: #ff6b00;
+    --gamecore-page: #f6f7f8;
+    --gamecore-border: #e4e6e8;
+    --gamecore-white: #fff;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+    margin: 0;
+    background: var(--gamecore-page);
+    color: var(--gamecore-dark);
+    font: 400 14px/1.5 "Barlow", Arial, sans-serif;
+}
+
+a { color: inherit; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--gamecore-orange); outline-offset: 3px; }
+
+.admin-skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 4;
+    transform: translateY(-150%);
+    padding: 8px 12px;
+    background: var(--gamecore-white);
+}
+.admin-skip-link:focus { transform: none; }
+
+.admin-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    height: 100dvh;
+    overflow-y: auto;
+    padding: 0 12px 16px;
+    background: var(--gamecore-dark);
+    color: var(--gamecore-white);
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    flex: 0 0 var(--topbar-height);
+    gap: 4px;
+    padding: 0 8px;
+    border-bottom: 1px solid #484d51;
+}
+
+.admin-brand a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.admin-brand-icon {
+    display: grid;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--gamecore-orange);
+    color: var(--gamecore-dark);
+    font-size: 21px;
+}
+.admin-brand-accent { color: var(--gamecore-orange); }
+
+.admin-nav { display: flex; flex-direction: column; gap: 4px; padding-top: 16px; }
+.admin-nav-label {
+    margin: 12px 12px 8px;
+    color: #b9bec2;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.admin-nav-item {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 12px;
+    gap: 12px;
+    border-radius: 10px;
+    color: #e7e9eb;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.admin-nav-item .bi { flex: 0 0 20px; font-size: 18px; line-height: 1; text-align: center; }
+.admin-nav-item[aria-disabled="true"] { color: #aeb4b9; }
+.admin-nav-item[aria-current="page"] {
+    background: var(--gamecore-white);
+    color: #bd4700;
+    font-weight: 800;
+}
+
+.admin-nav .admin-nav-item:not([aria-current="page"]):is(:hover, :focus-visible) {
+    background: rgb(255 255 255 / 12%);
+    color: var(--gamecore-white);
+}
+.admin-sidebar-bottom { margin-top: auto; padding-top: 16px; }
+
+.admin-main { min-width: 0; margin-left: var(--sidebar-width); }
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: var(--topbar-height);
+    padding: 12px 28px;
+    border-bottom: 1px solid var(--gamecore-border);
+    background: var(--gamecore-white);
+}
+.admin-topbar h1 { margin: 0; font-size: 26px; font-weight: 800; }
+.admin-content { padding: 24px 28px; }
+
+.admin-nav-toggle, .admin-nav-close {
+    display: none;
+    place-items: center;
+    flex: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 10px;
+    background: transparent;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    .admin-main { margin-left: 0; }
+    .admin-topbar, .admin-content { padding-inline: 16px; }
+    .admin-nav-toggle, .admin-nav-close { display: grid; }
+    .admin-nav-close { width: 36px; height: 36px; margin-left: auto; border-color: #666d73; font-size: 14px; }
+    .admin-sidebar { width: min(260px, calc(100vw - 40px)); visibility: hidden; transform: translateX(-100%); }
+    .admin-sidebar.is-open { visibility: visible; transform: translateX(0); }
+    .admin-backdrop { position: fixed; inset: 0; z-index: 2; background: rgb(0 0 0 / 55%); }
+    body.admin-menu-open { overflow: hidden; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .admin-sidebar { transition: transform 160ms ease, visibility 160ms; }
+}
