@@ -110,7 +110,7 @@ button { font: inherit; }
     font-weight: 800;
 }
 
-.admin-nav .admin-nav-item:not([aria-current="page"]):is(:hover, :focus-visible) {
+.admin-sidebar .admin-nav-item:not([aria-current="page"]):is(:hover, :focus-visible) {
     background: rgb(255 255 255 / 12%);
     color: var(--gamecore-white);
 }
@@ -202,3 +202,16 @@ button { font: inherit; }
     font-weight: 700;
     cursor: pointer;
 }
+
+.admin-profile {
+    max-width: 520px;
+    padding: 16px;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 10px;
+    background: var(--gamecore-white);
+}
+.admin-profile h2 { margin: 0 0 12px; font-size: 20px; }
+.admin-profile dl { display: grid; gap: 4px; margin: 0; }
+.admin-profile dt { font-weight: 700; }
+.admin-profile dd { margin: 0 0 8px; overflow-wrap: anywhere; }
+.admin-profile dd:last-child { margin-bottom: 0; }

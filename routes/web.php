@@ -32,4 +32,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::view('/dashboard', 'admin.dashboard')
         ->middleware(['auth', 'admin'])
         ->name('dashboard');
+
+    Route::view('/profile', 'admin.profile')
+        ->middleware(['auth', 'admin'])
+        ->name('profile');
 });

@@ -42,11 +42,18 @@
         @endforeach
     </nav>
 
-    <form class="admin-sidebar-bottom" method="POST" action="{{ route('admin.logout') }}">
-        @csrf
-        <button class="admin-nav-item admin-logout" type="submit">
-            <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
-            Logout
-        </button>
-    </form>
+    <div class="admin-sidebar-bottom">
+        <a class="admin-nav-item" href="{{ route('admin.profile') }}"
+           @if (request()->routeIs('admin.profile')) aria-current="page" @endif>
+            <i class="bi bi-person-circle" aria-hidden="true"></i>
+            Profile
+        </a>
+        <form method="POST" action="{{ route('admin.logout') }}">
+            @csrf
+            <button class="admin-nav-item admin-logout" type="submit">
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                Logout
+            </button>
+        </form>
+    </div>
 </aside>

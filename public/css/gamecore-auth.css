@@ -177,7 +177,7 @@ button { cursor: pointer; }
   border: 0;
   border-radius: 10px;
   background: var(--orange);
-  color: var(--text);
+  color: #ffffff;
   font-weight: 700;
 }
 .auth-submit:hover { background-color: color-mix(in srgb, var(--orange) 88%, white); }

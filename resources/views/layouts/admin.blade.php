@@ -22,7 +22,11 @@
                     aria-expanded="false" aria-controls="admin-sidebar">
                 <i class="bi bi-list" aria-hidden="true"></i>
             </button>
-            <h1>@yield('title', 'Dashboard')</h1>
+            <div class="admin-topbar-heading">
+                <h1>@yield('title', 'Dashboard')</h1>
+                @yield('topbar-description')
+            </div>
+            @yield('topbar-end')
         </header>
 
         <main class="admin-content" id="admin-content" tabindex="-1">
