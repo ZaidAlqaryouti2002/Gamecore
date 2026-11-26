@@ -24,12 +24,13 @@
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
+                        @if (auth()->user()->role === 'admin')
+                            <a href="{{ route('admin.dashboard') }}" class="px-5 py-1.5 text-sm">Dashboard</a>
+                        @endif
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="px-5 py-1.5 text-sm">Log out</button>
+                        </form>
                     @else
                         <a
                             href="{{ route('login') }}"

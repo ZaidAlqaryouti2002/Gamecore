@@ -42,10 +42,11 @@
         @endforeach
     </nav>
 
-    <div class="admin-sidebar-bottom">
-        <span class="admin-nav-item" aria-disabled="true">
+    <form class="admin-sidebar-bottom" method="POST" action="{{ route('admin.logout') }}">
+        @csrf
+        <button class="admin-nav-item admin-logout" type="submit">
             <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
             Logout
-        </span>
-    </div>
+        </button>
+    </form>
 </aside>

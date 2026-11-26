@@ -158,3 +158,47 @@ button { font: inherit; }
 @media (prefers-reduced-motion: no-preference) {
     .admin-sidebar { transition: transform 160ms ease, visibility 160ms; }
 }
+
+.admin-logout {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.admin-logout:is(:hover, :focus-visible) { background: rgb(255 255 255 / 12%); }
+
+.admin-login {
+    display: grid;
+    min-height: 100dvh;
+    place-items: center;
+    padding: 16px;
+}
+
+.admin-login main {
+    width: min(100%, 400px);
+    padding: 28px;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 10px;
+    background: var(--gamecore-white);
+}
+
+.admin-login h1 { margin: 0 0 20px; }
+.admin-login form { display: grid; gap: 8px; }
+.admin-login input, .admin-login button {
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 6px;
+    font: inherit;
+}
+.admin-login label { font-weight: 700; }
+.admin-login [role="alert"] { margin: 0; color: #a52a17; }
+.admin-login button {
+    margin-top: 8px;
+    border-color: transparent;
+    background: #bd4700;
+    color: var(--gamecore-white);
+    font-weight: 700;
+    cursor: pointer;
+}
