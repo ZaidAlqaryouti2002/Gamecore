@@ -27,6 +27,16 @@
     color: var(--gamecore-dark);
     font: inherit;
 }
+.management-toolbar :is(input[type="search"], [data-filter]):focus {
+    border-color: #bd4700;
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px rgb(255 107 0 / 12%);
+}
+
+@media (forced-colors: active) {
+    .management-toolbar :is(input[type="search"], [data-filter]):focus { outline-color: Highlight; }
+}
+
 .management-card button { cursor: pointer; }
 .management-card button:hover { background: #fff2e8; }
 .management-card button:disabled { opacity: .55; cursor: default; }
