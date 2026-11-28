@@ -1,0 +1,71 @@
+.admin-content:has(> .management-card) { padding: 10px 15px 10px 13px; }
+.admin-topbar:has(.management-description) { padding-block: 8px; }
+.admin-topbar:has(.management-description) h1 { line-height: 1.15; }
+.management-description { margin: 3px 0 0; color: #62676c; font-size: 13px; line-height: 1.3; }
+
+.management-card {
+    padding: 12px 16px 16px;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 10px;
+    background: var(--gamecore-white);
+}
+.management-toolbar, .management-pagination, .management-dialog footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+.management-toolbar [data-add] { margin-inline-start: auto; }
+.management-search { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.management-search input { width: min(230px, 60vw); }
+.management-card :is(button, input, select, textarea) {
+    min-height: 38px;
+    padding: 6px 10px;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 8px;
+    background: var(--gamecore-white);
+    color: var(--gamecore-dark);
+    font: inherit;
+}
+.management-card button { cursor: pointer; }
+.management-card button:hover { background: #fff2e8; }
+.management-card button:disabled { opacity: .55; cursor: default; }
+.management-card .management-primary { border-color: transparent; background: var(--gamecore-orange); font-weight: 700; }
+.management-card .management-primary:hover { background: #ff8732; }
+.management-status { margin: 8px 0; color: #62676c; }
+.management-status:empty { display: none; }
+.management-table-wrap { overflow-x: auto; margin-top: 12px; }
+.management-card table { width: 100%; min-width: 460px; border-collapse: collapse; text-align: left; }
+.management-card th, .management-card td { padding: 8px 10px; border-bottom: 1px solid var(--gamecore-border); overflow-wrap: anywhere; }
+.management-card thead { background: var(--gamecore-page); color: #52575c; }
+.management-row-actions { display: flex; gap: 4px; }
+.management-row-actions button { min-width: 36px; min-height: 36px; color: #a83e00; }
+.management-pagination { justify-content: flex-end; margin-top: 12px; }
+.management-dialog {
+    width: min(560px, calc(100% - 24px));
+    max-height: calc(100dvh - 24px);
+    padding: 16px;
+    border: 1px solid var(--gamecore-border);
+    border-radius: 12px;
+    color: var(--gamecore-dark);
+}
+.management-dialog::backdrop { background: rgb(36 39 41 / 55%); }
+.management-dialog-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+.management-dialog h2 { margin: 0; }
+.management-dialog [data-fields] { display: grid; gap: 10px; }
+.management-dialog label { display: grid; gap: 4px; font-weight: 600; }
+.management-dialog label :is(input, select, textarea) { width: 100%; }
+.management-dialog textarea { min-height: 70px; resize: vertical; }
+.management-dialog footer { justify-content: flex-end; margin-top: 14px; }
+.management-error { color: #a52a17; white-space: pre-line; }
+.management-items { display: grid; gap: 8px; margin: 0; padding: 8px; border: 1px solid var(--gamecore-border); }
+.management-line { display: grid; grid-template-columns: minmax(0, 1fr) 75px auto; gap: 6px; align-items: end; }
+.management-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media (min-width: 992px) {
+    .admin-topbar:has(.management-description) { padding-inline: 13px 15px; }
+    .admin-topbar-heading:has(.management-description) { padding-inline-start: 8px; }
+}
+@media (max-width: 600px) {
+    .admin-content:has(> .management-card) { padding-inline: 16px; }
+    .management-card { padding-inline: 12px; }
+}

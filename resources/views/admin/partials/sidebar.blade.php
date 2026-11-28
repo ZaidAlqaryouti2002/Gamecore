@@ -34,10 +34,12 @@
                 </a>
             @endif
             @foreach ($items as [$name, $icon])
-                <span class="admin-nav-item" aria-disabled="true">
+                @php($route = 'admin.'.strtolower($name).'.index')
+                <a class="admin-nav-item" href="{{ route($route) }}"
+                   @if (request()->routeIs($route)) aria-current="page" @endif>
                     <i class="bi bi-{{ $icon }}" aria-hidden="true"></i>
                     {{ $name }}
-                </span>
+                </a>
             @endforeach
         @endforeach
     </nav>
