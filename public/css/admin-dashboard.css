@@ -15,8 +15,6 @@ body:has(.dashboard) {
     padding: var(--dashboard-top-space) var(--dashboard-inset-end) 10px var(--dashboard-inset-start);
 }
 
-body:has(.dashboard) .admin-nav { padding-top: var(--dashboard-top-space); }
-body:has(.dashboard) .admin-nav-label:first-child { margin-top: 0; }
 .dashboard p { margin: 0; }
 .dashboard h2 { margin: 0; font-size: 22px; line-height: 1.2; }
 .dashboard-card-heading {

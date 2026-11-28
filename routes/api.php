@@ -9,9 +9,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/admin/categories', [CategoryController::class, 'index'])
-    ->middleware(['web', 'auth', 'admin']);
 Route::prefix('admin')->middleware(['web', 'auth', 'admin'])->group(function () {
+    Route::apiResource('categories', CategoryController::class);
     Route::apiResource('products', ProductController::class);
     Route::apiResource('users', CustomerController::class);
     Route::apiResource('orders', OrderController::class);

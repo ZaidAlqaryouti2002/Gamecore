@@ -7,7 +7,7 @@ return [
         'tags',
         'category',
         [['name', 'Name'], ['description', 'Description']],
-        [],
+        [['name', 'Name'], ['description', 'Description', 'optional-textarea']],
     ],
     'products' => [
         'Products',
